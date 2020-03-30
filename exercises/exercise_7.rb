@@ -21,17 +21,19 @@ end
 class Store < ActiveRecord::Base
   validates :name, length: {minimum: 3}
   validates :annual_revenue, numericality: {only_integer: true}
-  validates :annual_revenue, length: {minimum: 0}
+  validates :annual_revenue, numericality: {greater_than: 0}
 end
 
+puts "what is the store name?"
+storeName = gets.chomp
 
-# Employees must always have a first name present
-# Employees must always have a last name present
-# Employees have a hourly_rate that is a number (integer) between 40 and 200
-# Employees must always have a store that they belong to (can't have an employee that is not assigned a store)
+p = Store.create(name: storeName, annual_revenue: -1)
+# puts p
+# byebug
+p.valid?
+puts p.errors.messages
 
-# Stores must always have a name that is a minimum of 3 characters
-# Stores have an annual_revenue that is a number (integer) that must be 0 or more
+# puts storeName
 
 
 # create_table :employees do |table|
