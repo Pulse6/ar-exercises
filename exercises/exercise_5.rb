@@ -8,3 +8,8 @@ puts "Exercise 5"
 puts "----------"
 
 # Your code goes here ...
+
+class Store < ActiveRecord::Base
+  @Store
+  puts Store.sum
+end
