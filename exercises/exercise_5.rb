@@ -10,6 +10,12 @@ puts "----------"
 # Your code goes here ...
 
 class Store < ActiveRecord::Base
-  @Store
-  puts Store.sum
+  @made = Store.all
+  tot = 0
+  # puts @made.annual_revenue
+  @made.each do |store|
+    tot += store.annual_revenue
+  end
+
+  puts tot
 end
